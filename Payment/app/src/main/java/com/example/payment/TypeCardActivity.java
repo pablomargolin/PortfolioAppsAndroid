@@ -27,11 +27,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class TypeCardActivity extends AppCompatActivity {
 
     ListView listView;
+    int mont;
     final String CREDIT_CARD = "credit_card";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        mont = intent.getIntExtra("monto", 0);
+
         setContentView(R.layout.activity_type_card);
         listView = findViewById(R.id.lst_nameCards);
         getTypeCards();
@@ -60,11 +65,14 @@ public class TypeCardActivity extends AppCompatActivity {
                 }
 
                 String[] cards = new String[auxiliaryList.size()];
+                String[] ids = new String[auxiliaryList.size()];
+
                 //Cargo en la lista los nombres de las tarjetas
                 for (int i = 0; i < auxiliaryList.size(); i++){
                         cards[i] = auxiliaryList.get(i).getName();
+                        ids[i] = auxiliaryList.get(i).getId();
                 }
-                SetAdapter(cards);
+                SetAdapter(cards, ids);
             }
 
             @Override
@@ -74,14 +82,16 @@ public class TypeCardActivity extends AppCompatActivity {
         });
     }
     //Configuracion de la list view
-    void SetAdapter(String[] cards){
+    void SetAdapter(String[] cards, String[] ids){
         final String[] listValue = cards;
+        final String[] id = ids;
         listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, listValue));
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), WichCardActivity.class);
-                intent.putExtra("TipoTarjeta",listValue[i]);
+                intent.putExtra("id",id[i]);
+                intent.putExtra("monto", mont);
                 startActivity(intent);
 
             }

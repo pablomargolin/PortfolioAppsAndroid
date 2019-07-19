@@ -23,6 +23,7 @@
         android:layout_height="178dp"
         android:background="@android:color/transparent"
         android:gravity="center"
+        android:inputType="number"
         android:hint="@string/h_zero"
         android:textSize="50sp" />
 
@@ -36,7 +37,6 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:id="@+id/btn_continuar"
-        android:inputType="number"
         />
 
 </LinearLayout>

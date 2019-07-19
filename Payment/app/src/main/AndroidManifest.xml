@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WichCardActivity"></activity>
+        <activity android:name=".FinalActivity"></activity>
+        <activity android:name=".WichCardActivity" />
         <activity android:name=".TypeCardActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -4,4 +4,8 @@
     <string name="h_zero">$0</string>
     <string name="btn_continuar">Continuar</string>
     <string name="txt_test">TEST</string>
+    <string name="txt_pagar">Usted pagará: </string>
+    <string name="txt_bank">Con su tarjeta: </string>
+    <string name="btn_confirmar">Confirmar</string>
+
 </resources>
