@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WiFi Desactivado</string>
+    <string name="txt_start">ACTIVAR/DESACTIVAR</string>
+    <string name="txt_bienvenido">WiFi Desactivado es una aplicación que te avisará si tienes desactivado tu conexión WiFi, para evitar un excesivo gasto de datos móviles. Solo dale al boton para activarlo o desactivarlo.</string>
+    <string name="txt_activado">ACTIVADO</string>
+    <string name="txt_desactivado">DESACTIVADO</string>
+</resources>
