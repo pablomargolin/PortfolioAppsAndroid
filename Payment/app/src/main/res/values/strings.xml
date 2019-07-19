@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mercado Libre</string>
+    <string name="txt_ingresemonto">Ingrese el monto a pagar</string>
+    <string name="h_zero">$0</string>
+    <string name="btn_continuar">Continuar</string>
+    <string name="txt_test">TEST</string>
+</resources>
