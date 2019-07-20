@@ -14,7 +14,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     Button btnEmpezar;
-    static final long TIME_IN_MILI = 5000;
+    //3 Minutos
+    static final long TIME_IN_MILI = 180000;
     CountDownTimer timer;
     boolean isTimerRunning;
     long timeLeft;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Init();
-        
+
         btnEmpezar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
                     DesactivateApp();
             }
         });
-        
-        
+
+
     }
     
     void Init(){
@@ -58,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
         isTimerRunning = false;
     }
 
+    void OnClickApp(){
+
+    }
+
     @Override
     protected void onPause() {
             super.onPause();
@@ -69,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        if (isTimerRunning)
+            ActivateApp();
+        else
+            DesactivateApp();
+
         if (timer != null && isTimerRunning)
             timer.cancel();
         timeLeft = TIME_IN_MILI;
@@ -97,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
         isTimerRunning = true;
 
-        moveTaskToBack(true);
+        //moveTaskToBack(true);
         Toast.makeText(getApplicationContext(), "Aplicación activada!", Toast.LENGTH_SHORT).show();
     }
 
@@ -107,20 +118,20 @@ public class MainActivity extends AppCompatActivity {
 
         isTimerRunning = false;
 
-        moveTaskToBack(false);
+        //moveTaskToBack(false);
         Toast.makeText(getApplicationContext(), "Aplicación desactivada", Toast.LENGTH_SHORT).show();
     }
-    void VibrateDevice(int mili){
+    /*void VibrateDevice(int mili){
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(mili);
 
-    }
+    }*/
 
     void TimerInZero(){
         timeLeft = TIME_IN_MILI;
         CreateOtherTimer();
         if (wifi.getConnectionInfo().getNetworkId() == -1){
-            VibrateDevice(1000);
+            //VibrateDevice(1000);
             Toast.makeText(getApplicationContext(), "WiFi desactivado!", Toast.LENGTH_LONG).show();
         }
     }
